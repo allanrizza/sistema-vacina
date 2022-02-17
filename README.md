@@ -66,3 +66,16 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
 
 - Spring Validation
     - Para fazer as validações de e-mail e CPF
+    ```
+    @NotBlank(message = "Nome não pode ser nulo ou vazio")
+	private String nome;
+	
+	@Email(message = "Informe um e-mail válido.")
+	private String email;
+	
+	@CPF(message = "Informe um CPF válido.")
+	private String cpf;
+	
+	@NotNull(message = "Informe uma data válida")
+	private LocalDate dataNascimento;
+    ```
