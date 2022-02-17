@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
@@ -21,11 +22,17 @@ public class VacinadoModel implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotNull(message = "Nome não pode ser nulo")
 	private String nome;
+	
 	@Email(message = "Informe um e-mail válido.")
 	private String email;
+	
 	@CPF(message = "Informe um CPF válido.")
 	private String cpf;
+	
+	@NotNull(message = "Data de nascimento não pode ser nula")
 	private LocalDate dataNascimento;
 	
 	public String getNome() {

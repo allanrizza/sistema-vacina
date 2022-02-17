@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O projeto sistema-vacina é uma API REST para registro de cidadãos vacinados feito em Java com Spring.
+O projeto sistema-vacina é uma API REST para controle da aplicação de vacinas entre a população brasileira feito em Java com Spring.
 
 ## Como o projeto foi feito
 
@@ -42,6 +42,12 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
 
 - Spring Web
     - Usado para lidar com requisições HTTP no Controller
+    ```
+    @RequestMapping(method = RequestMethod.POST, value = "/vacinado")
+	public ResponseEntity<?> registraVacinado(@RequestBody VacinadoModel vacinadoModel) {
+        ...
+    }
+    ```
 
 - Spring Data
     - Para persistência de dados no Repository
