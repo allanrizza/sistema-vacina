@@ -50,14 +50,14 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
     ```
 
 - Spring Data
-    - Para persistência de dados no Repository
+    - Usado no Repository para persistência de dados
     ```
     @Repository
     public interface VacinadoRepository extends CrudRepository<VacinadoModel, Integer>{
         ...
     }
     ```
-    - Para salvar entidades no Service
+    - Usado no Service para salvar entidade
     ```
     public void salvaVacinado(VacinadoModel vacinadoModel) {
 		vacinadoRepository.save(vacinadoModel);
