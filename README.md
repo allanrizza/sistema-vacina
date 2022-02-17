@@ -51,6 +51,18 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
 
 - Spring Data
     - Para persistência de dados no Repository
+    ```
+    @Repository
+    public interface VacinadoRepository extends CrudRepository<VacinadoModel, Integer>{
+        ...
+    }
+    ```
+    - Para salvar entidades no Service
+    ```
+    public void salvaVacinado(VacinadoModel vacinadoModel) {
+		vacinadoRepository.save(vacinadoModel);
+	}
+    ```
 
 - Spring Validation
     - Para fazer as validações de e-mail e CPF
