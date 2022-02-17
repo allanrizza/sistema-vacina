@@ -26,10 +26,11 @@ public class VacinadoController {
 	private VacinadoService vacinadoService;
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/vacinado")
-	public ResponseEntity<?> registraVacinado(@RequestBody VacinadoModel vacinadoModel) {
+	public ResponseEntity<?> registraVacinado(@RequestBody VacinadoModel vacinadoModel) throws Exception {
 		
 		try{
 			validaExistencia(vacinadoModel);
+			verificaNumeroNome(vacinadoModel);
 			vacinadoService.salvaVacinado(vacinadoModel);
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch(ConstraintViolationException exception) {
@@ -65,6 +66,16 @@ public class VacinadoController {
 		if(existeVacinadoEmail || existeVacinadoCpf) {
 			throw new IllegalArgumentException(tipoErro);
 		}
+	}
+	
+	public boolean verificaNumeroNome(VacinadoModel vacinadoModel) throws Exception {
+		String nomeVacinado = vacinadoModel.getNome();
+		for(int i = 0; i < nomeVacinado.length(); i++) {
+			if(!Character.isLetter(nomeVacinado.charAt(i))) {
+				throw new IllegalArgumentException ("O nome não pode conter um número");
+			}
+		}
+		return true;
 	}
 
 }
