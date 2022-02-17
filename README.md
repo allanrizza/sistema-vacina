@@ -57,7 +57,7 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
         ...
     }
     ```
-    - Usado no Service para salvar entidade
+    - Usado no Service para salvar entidades
     ```
     public void salvaVacinado(VacinadoModel vacinadoModel) {
 		vacinadoRepository.save(vacinadoModel);
