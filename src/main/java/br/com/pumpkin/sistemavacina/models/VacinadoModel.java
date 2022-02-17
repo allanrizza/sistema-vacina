@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+
+import org.hibernate.validator.constraints.UniqueElements;
+import org.hibernate.validator.constraints.br.CPF;
 
 
 @SuppressWarnings("serial")
@@ -18,7 +22,9 @@ public class VacinadoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	@Email(message = "Informe um e-mail válido.")
 	private String email;
+	@CPF(message = "Informe um CPF válido.")
 	private String cpf;
 	private LocalDate dataNascimento;
 	

@@ -10,9 +10,18 @@ import br.com.pumpkin.sistemavacina.repositories.VacinadoRepository;
 public class VacinadoService {
 	@Autowired
 	private VacinadoRepository vacinadoRepository;
-	
+
 	public void salvaVacinado(VacinadoModel vacinadoModel) {
 		vacinadoRepository.save(vacinadoModel);
 	}
+
+	public boolean existeEmail(String email) {
+		return vacinadoRepository.existsByEmail(email);
+	}
+	
+	public boolean existeCpf(String cpf) {
+		return vacinadoRepository.existsByCpf(cpf);
+	}
+	
 	
 }
