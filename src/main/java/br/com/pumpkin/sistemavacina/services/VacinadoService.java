@@ -55,7 +55,9 @@ public class VacinadoService {
 	public void verificaNumeroNome(VacinadoModel vacinadoModel) throws Exception {
 		String nomeVacinado = vacinadoModel.getNome();
 		for (int i = 0; i < nomeVacinado.length(); i++) {
-			if (!Character.isLetter(nomeVacinado.charAt(i))) {
+			char space = ' ';
+			if (!(Character.isLetter(nomeVacinado.charAt(i)) || Character.isSpace(nomeVacinado.charAt(i)))) {
+				
 				throw new IllegalArgumentException("O nome não pode conter um número.");
 			}
 		}

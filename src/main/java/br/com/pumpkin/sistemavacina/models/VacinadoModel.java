@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -33,6 +35,7 @@ public class VacinadoModel implements Serializable {
 	private String cpf;
 	
 	@NotNull(message = "Informe uma data válida")
+	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
 	private LocalDate dataNascimento;
 	
 	public String getNome() {
