@@ -10,7 +10,7 @@ O projeto sistema-vacina foi feito com o Maven, uma ferramenta de gestão de dep
 
 ## Banco de dados utilizado e sua configuração
 
-Foi usado como banco de dados o PostgreSQL, por ser um banco de dados open-source, gratuito e de fácil uso. Essa base de dados foi configurada com sua respectiva url no arquivo “application.properties”, encontrado no diretório “src/main/resources”. Na minha base de dados, criei uma tabela que armazenaria os dados de pessoas registradas, sendo o id um serial primary key, o nome um charvar, o email um charvar, o cpf um charvar e o data_nascimento um date.
+Foi usado como banco de dados o PostgreSQL, por ser um banco de dados open-source, gratuito e de fácil uso. Essa base de dados foi configurada com sua respectiva url no arquivo “application.properties”, encontrado no diretório “src/main/resources”. Na minha base de dados, criei uma tabela que armazenaria os dados de pessoas registradas, sendo o id um serial primary key, o nome um varchar, o email um varchar, o cpf um varchar e o data_nascimento um date.
 
 ## Model
 
@@ -38,9 +38,13 @@ Na última etapa, criei o Controller de anotação da aplicação, parte respons
 
 ## Tecnologias
 - Spring Boot
+    - Usado para fazer as configurações iniciais
 
 - Spring Web
+    - Usado para lidar com requisições HTTP no Controller
 
 - Spring Data
+    - Para persistência de dados no Repository
 
 - Spring Validation
+    - Para fazer as validações de e-mail e CPF
