@@ -33,7 +33,7 @@ public class VacinadoController {
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 
-		// Pega erro em caso de Email e CPF inválido
+		// Pega erro em caso de Email e CPF inválido.
 		catch (ConstraintViolationException exception) {
 			List<String> listaException = new ArrayList<>();
 			for (ConstraintViolation<?> campoInvalido : exception.getConstraintViolations()) {
@@ -43,7 +43,7 @@ public class VacinadoController {
 		}
 
 		// Pega erro nos casos de: 1) Já existir alguém no BD com o email ou com o cpf
-		// informado. 2) Houver algum número no nome informado 3) A data de nascimento for inválida
+		// informado; 2) Houver algum número no nome informado; 3) A data de nascimento for inválida.
 		catch (IllegalArgumentException exception) {
 			return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
 		}
