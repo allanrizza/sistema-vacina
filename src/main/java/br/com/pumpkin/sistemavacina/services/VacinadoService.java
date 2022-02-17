@@ -58,7 +58,7 @@ public class VacinadoService {
 			char space = ' ';
 			if (!(Character.isLetter(nomeVacinado.charAt(i)) || Character.isSpace(nomeVacinado.charAt(i)))) {
 				
-				throw new IllegalArgumentException("O nome não pode conter um número.");
+				throw new IllegalArgumentException("O nome só pode conter letras");
 			}
 		}
 	}
