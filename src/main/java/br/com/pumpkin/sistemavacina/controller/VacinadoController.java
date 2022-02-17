@@ -43,7 +43,7 @@ public class VacinadoController {
 		}
 
 		// Pega erro nos casos de: 1) Já existir alguém no BD com o email ou com o cpf
-		// informado. 2) Houver algum número no nome informado
+		// informado. 2) Houver algum número no nome informado 3) A data de nascimento for inválida
 		catch (IllegalArgumentException exception) {
 			return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
 		}
