@@ -68,14 +68,13 @@ public class VacinadoController {
 		}
 	}
 	
-	public boolean verificaNumeroNome(VacinadoModel vacinadoModel) throws Exception {
+	public void verificaNumeroNome(VacinadoModel vacinadoModel) throws Exception {
 		String nomeVacinado = vacinadoModel.getNome();
 		for(int i = 0; i < nomeVacinado.length(); i++) {
 			if(!Character.isLetter(nomeVacinado.charAt(i))) {
 				throw new IllegalArgumentException ("O nome não pode conter um número");
 			}
 		}
-		return true;
 	}
 
 }
