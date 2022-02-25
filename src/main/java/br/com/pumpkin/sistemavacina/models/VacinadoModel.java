@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "vacinados")
 public class VacinadoModel implements Serializable {
+
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -38,6 +42,27 @@ public class VacinadoModel implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
 	private LocalDate dataNascimento;
 	
+	@ManyToOne(targetEntity = VacinaModel.class)
+	@JoinColumn(referencedColumnName = "nome_vacina", name = "vacina")
+	@NotBlank(message = "Vacina informada não existe")
+	private VacinaModel vacina;
+
+	public VacinaModel getVacina() {
+		return this.vacina;
+	}
+
+	public void setVacina(VacinaModel vacina) {
+		this.vacina = vacina;
+	}
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -62,6 +87,6 @@ public class VacinadoModel implements Serializable {
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 	
 }
